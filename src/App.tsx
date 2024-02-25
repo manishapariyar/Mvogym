@@ -1,4 +1,4 @@
-
+import MainSection from "@/components/home/MainSection"
 import Navbar from "@/components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/components/shared/types";
@@ -31,6 +31,7 @@ const App = () => {
     <Navbar 
    isTopOfpage ={isTopOfpage}
     selectedPage={selectedPage}  setSelectedPage={setSelectedPage}/>
+    < MainSection setSelectedPage={setSelectedPage} />
    </div>
   )
 }

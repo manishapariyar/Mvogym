@@ -1,12 +1,13 @@
 import { SelectedPage } from "../shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "../shared/ActionButton";
-import HomePageText from "@/assets/HomepageText.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import HomePageGraphic from "@/assets/HomePageGraphic.png"
 import SponsorRedBull from "@/assets/SponsorRedBull.png"
 import SponsorForbes from "@/assets/SponsorForbes.png"
 import SponsorFortune from "@/assets/SponsorFortune.png"
+import { motion } from "framer-motion";
+
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -17,11 +18,21 @@ const MainSection = ({setSelectedPage}: Props) => {
   return <>
   <section id="home" className="gap-16 bg-gray-20 md:h-full py-10 md:pb-0">
    {/*image and main header*/}
-   <div className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6 ">
+   <motion.div className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6 "
+   onViewportEnter={()=>setSelectedPage(SelectedPage.Home)}>
     {/*main header*/}
     <div className="z-10 mt-32 md:basis-3/5">
       {/*heading*/}
-     <div className="md:-mt-20">
+     <motion.div className="md:-mt-20"
+     initial="hidden"
+     whileInView="visible"
+     viewport={{once:true, amount:0.5}}
+     transition={{duration:0.5}}
+     variants={{
+      hidden:{opacity:0,x:-100},
+      visible:{opacity:1,x:0}
+     }}
+     >
       <div className="relative">
         <div  className="before:absolute before:top-10 before:-left-5 before:z-[-1] md:before:content-evolvetext">
           <div className="flex flex-col mt-4">
@@ -32,8 +43,17 @@ const MainSection = ({setSelectedPage}: Props) => {
       </div>
       <p className="mt-3 text-sm">
       Mvogym: Elevate your fitness journey with our cutting-edge equipment, expert trainers, and a welcoming community.</p>
-     </div>
-      <div className="mt-9 flex items-center gap-8">
+     </motion.div>
+      <motion.div className="mt-9 flex items-center gap-8"
+      initial="hidden"
+     whileInView="visible"
+     viewport={{once:true, amount:0.5}}
+     transition={{delay:0.5,duration:0.5}}
+     variants={{
+      hidden:{opacity:0,x:-100},
+      visible:{opacity:1,x:0}
+     }}
+      >
         <ActionButton setSelectedPage={setSelectedPage}>
           Join Now</ActionButton>
         <AnchorLink className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
@@ -42,13 +62,13 @@ const MainSection = ({setSelectedPage}: Props) => {
         >
           <p>Learn more</p>
         </AnchorLink>
-      </div>
+      </motion.div>
     </div>
     {/*Image */}
-    <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-30 md:justify-end">
+    <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-35 md:justify-end">
       <img src={HomePageGraphic} alt="HomePageGraphic" className="w-[400px]" />
     </div>
-   </div>
+   </motion.div>
    {/* sponsors */}
   { isAboveMediumScreens &&(
     <div className="h-[120px] w-full bg-primary-100 py-10 ">

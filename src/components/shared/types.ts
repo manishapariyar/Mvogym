@@ -9,3 +9,8 @@ export interface BenefitsType{
   title:string;
   description:string;
 }
+export interface ClassType{
+    Name: string;
+    description:string;
+    image:string;
+}

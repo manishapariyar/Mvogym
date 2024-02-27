@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { SelectedPage } from "@/components/shared/types";
 import Benefits from "@/components/benefits/Benefits"
 import OurClasses from "./components/ourClasses/OurClasses";
+import ContactUS from "./components/contactus/ContactUS";
 
 const App = () => {
 
@@ -34,6 +35,7 @@ const App = () => {
     < MainSection setSelectedPage={setSelectedPage} />
     < Benefits setSelectedPage={setSelectedPage} />
     < OurClasses setSelectedPage={setSelectedPage} />
+    < ContactUS setSelectedPage={setSelectedPage} />
    </div>
   )
 }

@@ -5,6 +5,7 @@ import { SelectedPage } from "@/components/shared/types";
 import Benefits from "@/components/benefits/Benefits"
 import OurClasses from "./components/ourClasses/OurClasses";
 import ContactUS from "./components/contactus/ContactUS";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
 
@@ -36,6 +37,7 @@ const App = () => {
     < Benefits setSelectedPage={setSelectedPage} />
     < OurClasses setSelectedPage={setSelectedPage} />
     < ContactUS setSelectedPage={setSelectedPage} />
+    <Footer/>
    </div>
   )
 }
